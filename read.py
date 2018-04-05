@@ -40,7 +40,32 @@ bad = ['bad' in d for d in data]
 print(bad)
 
 
+#文字計數
+wc = {} # word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] += 1
+		else:
+			wc[word] = 1 #沒有的話就新增新的key進wc字典
 
+for word in wc:
+	if wc[word] > 100:
+		print(word, wc[word])
+
+print(len(wc))
+print(wc['Allen'])
+
+while True:
+	word = input('請問你想查什麼字')
+	if word == 'q':
+		break
+	if word in wc:
+		print(word, '出現過的次數為:', wc[word])
+	else:
+		print('沒有這個喔')
+print('感謝使用！')
 
 
 
